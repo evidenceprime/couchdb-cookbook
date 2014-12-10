@@ -44,7 +44,8 @@ package 'couchdb' do
     )
 end
 
-couchdb_config '/etc/couchdb'
+node.set['couch_db']['config_dir'] = config_dir = '/etc/couchdb'
+couchdb_config config_dir
 
 directory '/var/lib/couchdb' do
   owner 'couchdb'

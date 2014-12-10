@@ -87,7 +87,8 @@ end
   end
 end
 
-couchdb_config '/usr/local/etc/couchdb'
+node.set['couch_db']['config_dir'] = config_dir = '/usr/local/etc/couchdb'
+couchdb_config config_dir
 
 cookbook_file '/etc/init.d/couchdb' do
   source 'couchdb.init'
